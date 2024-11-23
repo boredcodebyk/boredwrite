@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@aarkue/tiptap-math-extension':
+    specifier: ^1.3.3
+    version: 1.3.3(@tiptap/core@2.10.1)(@tiptap/pm@2.10.1)
   '@tanstack/table-core':
     specifier: ^8.20.5
     version: 8.20.5
@@ -38,6 +41,9 @@ dependencies:
   '@tiptap/extension-highlight':
     specifier: ^2.10.1
     version: 2.10.1(@tiptap/core@2.10.1)
+  '@tiptap/extension-history':
+    specifier: ^2.10.2
+    version: 2.10.2(@tiptap/core@2.10.1)(@tiptap/pm@2.10.1)
   '@tiptap/extension-italic':
     specifier: ^2.10.1
     version: 2.10.1(@tiptap/core@2.10.1)
@@ -53,6 +59,9 @@ dependencies:
   '@tiptap/extension-paragraph':
     specifier: ^2.10.1
     version: 2.10.1(@tiptap/core@2.10.1)
+  '@tiptap/extension-placeholder':
+    specifier: ^2.10.2
+    version: 2.10.2(@tiptap/core@2.10.1)(@tiptap/pm@2.10.1)
   '@tiptap/extension-strike':
     specifier: ^2.10.1
     version: 2.10.1(@tiptap/core@2.10.1)
@@ -77,6 +86,9 @@ dependencies:
   dexie:
     specifier: ^4.0.10
     version: 4.0.10
+  katex:
+    specifier: ^0.16.11
+    version: 0.16.11
   svelte-persisted-store:
     specifier: ^0.12.0
     version: 0.12.0(svelte@5.2.7)
@@ -109,6 +121,9 @@ devDependencies:
   lucide-svelte:
     specifier: ^0.460.1
     version: 0.460.1(svelte@5.2.7)
+  mode-watcher:
+    specifier: ^0.5.0
+    version: 0.5.0(svelte@5.2.7)
   phosphor-svelte:
     specifier: ^2.0.1
     version: 2.0.1(svelte@5.2.7)
@@ -118,6 +133,9 @@ devDependencies:
   svelte-check:
     specifier: ^4.0.0
     version: 4.0.9(svelte@5.2.7)(typescript@5.6.3)
+  svelte-sonner:
+    specifier: ^0.3.28
+    version: 0.3.28(svelte@5.2.7)
   tailwind-merge:
     specifier: ^2.5.4
     version: 2.5.4
@@ -138,6 +156,18 @@ devDependencies:
     version: 5.4.11
 
 packages:
+
+  /@aarkue/tiptap-math-extension@1.3.3(@tiptap/core@2.10.1)(@tiptap/pm@2.10.1):
+    resolution: {integrity: sha512-hwNyoHv7xB0r/bFlt7UpFtlQ+0CzYJuq0aEqdLAoYiKcbzM8HYv919YPQp/rYl7YR+nldmZeU5i5CbYgjVsOgA==}
+    peerDependencies:
+      '@tiptap/core': ^2.0.0-beta.220
+      '@tiptap/pm': ^2.0.0-beta.220
+    dependencies:
+      '@tiptap/core': 2.10.1(@tiptap/pm@2.10.1)
+      '@tiptap/pm': 2.10.1
+      evaluatex: 2.2.0
+      katex: 0.16.11
+    dev: false
 
   /@alloc/quick-lru@5.2.0:
     resolution: {integrity: sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==}
@@ -1093,6 +1123,16 @@ packages:
       '@tiptap/core': 2.10.1(@tiptap/pm@2.10.1)
     dev: false
 
+  /@tiptap/extension-history@2.10.2(@tiptap/core@2.10.1)(@tiptap/pm@2.10.1):
+    resolution: {integrity: sha512-Hr5cvYgOAP7vaRD5vbMjirTATFe/zYqnzePhq1c9TQESOi2o0zKxWpZIcHbFFIXCjHLSnpXOZ4yFwHP4k12rgg==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.10.1(@tiptap/pm@2.10.1)
+      '@tiptap/pm': 2.10.1
+    dev: false
+
   /@tiptap/extension-italic@2.10.1(@tiptap/core@2.10.1):
     resolution: {integrity: sha512-/VHtzpyAtc+ei2dhVbyU/vN10we05P/VP76MoBlu/hypQsotn63i4pbVtdwsXowJ5ZbpLthu1RJdQxf1fRZCLg==}
     peerDependencies:
@@ -1134,6 +1174,16 @@ packages:
       '@tiptap/core': ^2.7.0
     dependencies:
       '@tiptap/core': 2.10.1(@tiptap/pm@2.10.1)
+    dev: false
+
+  /@tiptap/extension-placeholder@2.10.2(@tiptap/core@2.10.1)(@tiptap/pm@2.10.1):
+    resolution: {integrity: sha512-QWzih69SetWYiylQzHsK29dMR8z1ParfcEw05hy3yyWqXE1DiKEot6rOGV1xenMVEA/SNGYYhQia15Bvco95TA==}
+    peerDependencies:
+      '@tiptap/core': ^2.7.0
+      '@tiptap/pm': ^2.7.0
+    dependencies:
+      '@tiptap/core': 2.10.1(@tiptap/pm@2.10.1)
+      '@tiptap/pm': 2.10.1
     dev: false
 
   /@tiptap/extension-strike@2.10.1(@tiptap/core@2.10.1):
@@ -1445,6 +1495,11 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
+  /commander@8.3.0:
+    resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
+    engines: {node: '>= 12'}
+    dev: false
+
   /cookie@0.6.0:
     resolution: {integrity: sha512-U71cyTamuh1CRNCfpGY6to28lxvNwPG4Guz/EVjgf3Jmzv0vlDp1atT9eS5dDjMYHucpHbWns6Lwf3BKz6svdw==}
     engines: {node: '>= 0.6'}
@@ -1622,6 +1677,10 @@ packages:
   /estree-walker@0.6.1:
     resolution: {integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==}
     dev: true
+
+  /evaluatex@2.2.0:
+    resolution: {integrity: sha512-QVtGvYTf9HvQyDjbBCwoDQPP9KMuVB56H8KalrkLsPPCQfngpVmkiIoxJ4FU/SVmlmhnbr/heOmP5VlbCTEJpg==}
+    dev: false
 
   /exit-hook@2.2.1:
     resolution: {integrity: sha512-eNTPlAD67BmP31LDINZ3U7HSF8l57TxOY2PmBJ1shpCvpnxBF93mWCE8YHBnXs8qiUZJc9WDcWIeC3a2HIAMfw==}
@@ -1807,6 +1866,13 @@ packages:
     hasBin: true
     dev: true
 
+  /katex@0.16.11:
+    resolution: {integrity: sha512-RQrI8rlHY92OLf3rho/Ts8i/XvjgguEjOkO1BEXcU3N8BqPpSzBNwV/G0Ukr+P/l3ivvJUE/Fa/CwbS6HesGNQ==}
+    hasBin: true
+    dependencies:
+      commander: 8.3.0
+    dev: false
+
   /kleur@4.1.5:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
@@ -1942,6 +2008,14 @@ packages:
   /minipass@7.1.2:
     resolution: {integrity: sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==}
     engines: {node: '>=16 || 14 >=14.17'}
+    dev: true
+
+  /mode-watcher@0.5.0(svelte@5.2.7):
+    resolution: {integrity: sha512-5E6fh/aXhAVv+U+DbeM0hCmskQE9u7WSmvnCRijJB/MJu7HtB73sjiCaZ9n1M8QHmzLrBFo8XBAUcWXkDm8Z9A==}
+    peerDependencies:
+      svelte: ^4.0.0 || ^5.0.0-next.1
+    dependencies:
+      svelte: 5.2.7
     dev: true
 
   /mri@1.2.0:
@@ -2570,6 +2644,14 @@ packages:
     dependencies:
       svelte: 5.2.7
     dev: false
+
+  /svelte-sonner@0.3.28(svelte@5.2.7):
+    resolution: {integrity: sha512-K3AmlySeFifF/cKgsYNv5uXqMVNln0NBAacOYgmkQStLa/UoU0LhfAACU6Gr+YYC8bOCHdVmFNoKuDbMEsppJg==}
+    peerDependencies:
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0-next.1
+    dependencies:
+      svelte: 5.2.7
+    dev: true
 
   /svelte-toolbelt@0.4.6(svelte@5.2.7):
     resolution: {integrity: sha512-k8OUvXBUifHZcAlWeY/HLg/4J0v5m2iOfOhn8fDmjt4AP8ZluaDh9eBFus9lFiLX6O5l6vKqI1dKL5wy7090NQ==}

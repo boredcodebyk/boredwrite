@@ -2,9 +2,10 @@
   import * as Command from "$lib/components/ui/command";
   import { liveQuery } from "dexie";
   import Editor from "../../(component)/editor.svelte";
-  import { db } from "$lib/store";
-  import { House } from "phosphor-svelte";
+  import { db, settingsDialogOpen } from "$lib/store";
+  import { House, Sun, Moon } from "phosphor-svelte";
   import { goto } from "$app/navigation";
+  import { toggleMode } from "mode-watcher";
 
   let open = $state(false);
 
@@ -27,7 +28,12 @@
   }
 </script>
 
+
+
 {#each $note as item}
+
+  <title>{item.title} - boredwrite</title>
+
     <div class="h-dvh mx-12 my-6">
       <input
         bind:value={item.title}
@@ -36,7 +42,7 @@
         name="title"
         id="title"
         placeholder="Title"
-        class="prose prose-base text-4xl mx-4"
+        class="prose prose-base text-4xl mx-4 text-current bg-transparent outline-none"
       />
       <Editor id={data.id} value={item.data} />
     
@@ -45,11 +51,15 @@
         <Command.List>
           <Command.Empty>No results found.</Command.Empty>
           <Command.Group heading="Navigate">
-            <Command.Item onclick={()=>goto('/')}>
+            <Command.Item onclick={()=>{goto('/'); open = false;}}>
               <House/>
               <span>Home</span>
             </Command.Item>
-            <Command.Item>Search Emoji</Command.Item>
+            <Command.Item onclick={()=> {toggleMode(); open = false;}}>
+              <Sun class="dark:scale-0 scale-100"/>
+              <Moon class="absolute dark:scale-100 scale-0"/>
+              <span>Toggle Theme</span>
+            </Command.Item>
             <Command.Item>Calculator</Command.Item>
           </Command.Group>
         </Command.List>

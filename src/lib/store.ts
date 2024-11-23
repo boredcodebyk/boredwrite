@@ -1,5 +1,6 @@
 import { persisted } from 'svelte-persisted-store'
 import Dexie, { type EntityTable } from "dexie";
+import { writable } from 'svelte/store';
 // First param `preferences` is the local storage key.
 // Second param is the initial value.
 export const preferences = persisted('preferences', {
@@ -7,6 +8,8 @@ export const preferences = persisted('preferences', {
   pane: '50%',
   
 });
+
+export const settingsDialogOpen = writable(false);
 
 export interface Note {
     id: string,
