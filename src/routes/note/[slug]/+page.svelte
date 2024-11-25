@@ -44,7 +44,7 @@
         placeholder="Title"
         class="prose prose-base text-4xl mx-4 text-current bg-transparent outline-none"
       />
-      <Editor id={data.id} value={item.data} />
+      <Editor data={item} />
     
       <Command.Dialog bind:open>
         <Command.Input placeholder="Type a command or search..." />

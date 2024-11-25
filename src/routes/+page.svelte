@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { db } from "$lib/store";
+  import { db, settingsDialogOpen } from "$lib/store";
   import { liveQuery } from "dexie";
-  import { Sun, Moon } from "phosphor-svelte";
+  import { Sun, Moon, Gear } from "phosphor-svelte";
   import * as Table from "$lib/components/ui/table";
   import * as AlertDialog from "$lib/components/ui/alert-dialog";
   import { Button } from "$lib/components/ui/button";
@@ -64,8 +64,9 @@
               <DropdownMenu.Content>
                 <DropdownMenu.Group>
                   <DropdownMenu.GroupHeading>Actions</DropdownMenu.GroupHeading>
-                  <DropdownMenu.Item onclick={() => goto(`/note/${note.id}`)} class="cursor-pointer"
-                    >Edit</DropdownMenu.Item
+                  <DropdownMenu.Item
+                    onclick={() => goto(`/note/${note.id}`)}
+                    class="cursor-pointer">Edit</DropdownMenu.Item
                   >
                   <!-- <DropdownMenu.Item onclick={() => navigator.clipboard.writeText(note.id)}>
                   Copy payment ID
@@ -73,8 +74,8 @@
                 </DropdownMenu.Group>
                 <DropdownMenu.Separator />
                 <DropdownMenu.Item
-                  onclick={() => (isDeleteConfirmBoxOpen = true)} class="cursor-pointer"
-                  >Delete</DropdownMenu.Item
+                  onclick={() => (isDeleteConfirmBoxOpen = true)}
+                  class="cursor-pointer">Delete</DropdownMenu.Item
                 >
                 <!-- <DropdownMenu.Item>View payment details</DropdownMenu.Item> -->
               </DropdownMenu.Content>
@@ -93,7 +94,12 @@
             </AlertDialog.Header>
             <AlertDialog.Footer>
               <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-              <AlertDialog.Action onclick={async ()=>{ await db.notes.delete(note.id); isDeleteConfirmBoxOpen = false}}>Continue</AlertDialog.Action>
+              <AlertDialog.Action
+                onclick={async () => {
+                  await db.notes.delete(note.id);
+                  isDeleteConfirmBoxOpen = false;
+                }}>Continue</AlertDialog.Action
+              >
             </AlertDialog.Footer>
           </AlertDialog.Content>
         </AlertDialog.Root>
@@ -122,7 +128,15 @@
           <Moon class="absolute dark:scale-100 scale-0" />
           <span>Toggle Theme</span>
         </Command.Item>
-        <Command.Item>Calculator</Command.Item>
+        <Command.Item
+          onclick={() => {
+            $settingsDialogOpen = true;
+            open = false;
+          }}
+        >
+          <Gear />
+          <span>Settings</span>
+        </Command.Item>
       </Command.Group>
     </Command.List>
   </Command.Dialog>
